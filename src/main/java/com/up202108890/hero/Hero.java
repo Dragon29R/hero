@@ -38,4 +38,12 @@ public class Hero {
         this.position.setX(position.getX());
         this.position.setY(position.getY());
     }
+    public int getX(){
+        return position.getX();
+    }
+    public int getY(){
+        return position.getY();
+    }
+
+
 }
