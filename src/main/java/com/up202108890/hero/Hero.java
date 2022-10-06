@@ -7,35 +7,35 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import java.io.IOException;
 
 public class Hero {
-    private int x;
-    private int y;
+    private Position position;
 
     public Hero(int i, int i2) {
-        x = i;
-        y = i2;
+    position = new Position(i,i2);
     }
 
 
 
-    public void moveUp() {
-        y--;
+    public Position moveUp(){
+        return new Position(position.getX(), position.getY()-1);
     }
 
-    public void moveDown() {
-        y++;
+    public Position moveDown(){
+        return new Position(position.getX(), position.getY()+1);
     }
 
-    public void moveRight() {
-        x++;
+    public Position moveRight(){
+        return new Position(position.getX()+1, position.getY());
     }
 
-    public void moveLeft() {
-        x--;
+    public Position moveLeft(){
+        return new Position(position.getX()-1, position.getY());
     }
-
     public void draw(Screen screen) throws IOException {
-        screen.setCharacter(x, y, TextCharacter.fromCharacter('X')[0]);
+        screen.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('X')[0]);
     }
 
-
+    public void setPosition(Position position){
+        this.position.setX(position.getX());
+        this.position.setY(position.getY());
+    }
 }

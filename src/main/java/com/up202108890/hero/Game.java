@@ -38,16 +38,16 @@ public class Game {
     private void processKey (KeyStroke key) throws IOException {
         System.out.println(key);
         if(key.getKeyType()==KeyType.ArrowUp){
-            hero.moveUp();
+            moveHero(hero.moveUp());
         }
         if(key.getKeyType()==KeyType.ArrowDown){
-            hero.moveDown();
+            moveHero(hero.moveDown());
         }
         if(key.getKeyType()==KeyType.ArrowRight){
-            hero.moveRight();
+            moveHero(hero.moveRight());
         }
         if(key.getKeyType()==KeyType.ArrowLeft){
-            hero.moveLeft();
+            moveHero(hero.moveLeft());
         }
         if(key.getKeyType() ==KeyType.Character && key.getCharacter()=='q'){
             screen.close();
@@ -63,5 +63,8 @@ public class Game {
             processKey(key);
 
         }
+    }
+    private void moveHero(Position position){
+        hero.setPosition(position);
     }
 }
